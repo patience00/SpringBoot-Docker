@@ -18,6 +18,11 @@ public class TestController {
         return "home";
     }
 
+    @RequestMapping("/joke")
+    public String hahaha() {
+        return "list";
+    }
+
     @RequestMapping("/page")
     public String home() {
         return "Hello 拖孩!";

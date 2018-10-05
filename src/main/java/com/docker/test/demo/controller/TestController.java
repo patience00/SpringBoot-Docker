@@ -1,6 +1,8 @@
 package com.docker.test.demo.controller;
 
+import com.docker.test.demo.service.LogService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +16,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
 
+    private final LogService logService;
+
+    @Autowired
+    public TestController(final LogService logService) {
+        this.logService = logService;
+    }
+
+
+
     @RequestMapping("/index")
     public String index(HttpServletRequest request, Model model) {
         String ip = request.getRemoteAddr();
+        logService.record(ip);
         model.addAttribute("ip", ip);
         return "home";
     }

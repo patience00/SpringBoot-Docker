@@ -5,7 +5,7 @@ spring:
     url: ${DATABASE}
     username: ${USERNAME}
     password: ${PASSWORD}
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html

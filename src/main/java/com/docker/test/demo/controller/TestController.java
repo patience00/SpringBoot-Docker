@@ -1,8 +1,9 @@
 package com.docker.test.demo.controller;
 
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * ${DESCRIPTION}
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @RequestMapping("/index")
-    public String index() {
+    public String index(HttpServletRequest request, Model model) {
+        String ip = request.getRemoteAddr();
+        model.addAttribute("ip", ip);
         return "home";
     }
 

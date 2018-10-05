@@ -1,0 +1,16 @@
+server:
+  port: ${APP_PORT}
+spring:
+  datasource:
+    url: ${DATABASE}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+    mode: HTML5

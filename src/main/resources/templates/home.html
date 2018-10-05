@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>hello 拖孩</title>
     <meta name="keywords" content="keyword1,keyword2,keyword3"></meta>
@@ -23,7 +23,7 @@
 <img src="huangbo.gif" width="600" height="500" >
 </div>
 <div>
-
+    <p>地址:<span th:text="${ip}"></span></p>
 <h2>hello 拖孩</h2>
 </div>
 </body>

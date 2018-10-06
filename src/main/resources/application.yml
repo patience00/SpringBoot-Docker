@@ -5,7 +5,26 @@ spring:
     url: ${DATABASE}
     username: ${USERNAME}
     password: ${PASSWORD}
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      filters: stat,wall        # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 1
+      min-idle: 1
+      max-active: 30
+      max-wait: 10000
+      time-between-eviction-runs-millis: 20000        # 配置一个连接在池中生存的时间，单位是毫秒
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 5000
+          merge-sql: true
+      max-pool-prepared-statement-per-connection-size: 20
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html

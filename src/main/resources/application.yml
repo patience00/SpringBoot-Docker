@@ -33,7 +33,8 @@ spring:
       content-type: text/html
     cache: false
     mode: HTML5
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-    hibernate:
-      ddl-auto: create
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.docker.test.demo.domain.model
+  configuration:
+    autoRuntimeDialect: true

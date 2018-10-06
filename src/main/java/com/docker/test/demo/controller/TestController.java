@@ -28,8 +28,9 @@ public class TestController {
     @RequestMapping("/index")
     public String index(HttpServletRequest request, Model model) {
         String ip = request.getRemoteAddr();
-        logService.record(ip);
+        Integer record = logService.record(ip);
         model.addAttribute("ip", ip);
+        model.addAttribute("count", record);
         return "home";
     }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.docker.test.demo.domain.dao.LogMapper">
+
+    <insert id="save" parameterType="com.docker.test.demo.domain.model.Log">
+        INSERT INTO log
+        VALUES (NULL ,#{ip},#{time})
+    </insert>
+
+    <select id="count" resultType="integer">
+        SELECT
+        COUNT(1)
+        FROM
+        log;
+    </select>
+
+</mapper>

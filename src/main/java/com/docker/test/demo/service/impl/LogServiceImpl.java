@@ -1,7 +1,7 @@
 package com.docker.test.demo.service.impl;
 
+import com.docker.test.demo.domain.dao.LogMapper;
 import com.docker.test.demo.domain.model.Log;
-import com.docker.test.demo.domain.model.LogRepository;
 import com.docker.test.demo.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,18 +15,19 @@ import java.util.Date;
 @Service
 public class LogServiceImpl implements LogService {
 
-    private final LogRepository logRepository;
+    private final LogMapper logMapper;
 
     @Autowired
-    public LogServiceImpl(final LogRepository logRepository) {
-        this.logRepository = logRepository;
+    public LogServiceImpl(final LogMapper logMapper) {
+        this.logMapper = logMapper;
     }
 
     @Override
-    public void record(String ip) {
+    public Integer record(String ip) {
         Log log = new Log();
         log.setIp(ip);
         log.setTime(new Date());
-        logRepository.save(log);
+        logMapper.save(log);
+        return logMapper.count();
     }
 }

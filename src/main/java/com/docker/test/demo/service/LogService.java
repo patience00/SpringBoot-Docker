@@ -6,5 +6,7 @@ package com.docker.test.demo.service;
  **/
 public interface LogService {
 
-    void record(String ip);
+    Integer record(String ip);
+
+
 }

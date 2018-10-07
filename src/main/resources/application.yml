@@ -25,7 +25,6 @@ spring:
           merge-sql: true
       max-pool-prepared-statement-per-connection-size: 20
       connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-  de
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html

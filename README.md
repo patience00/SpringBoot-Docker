@@ -1,7 +1,10 @@
 # SpringBoot-Docker
 使用Docker部署SpringBoot
+
 这里使用的Daocloud部署的:https://dashboard.daocloud.io
-可以免费使用,但并行构建任务只有一个
+
+可以免费使用,但并行构建任务只有一个.
+
 Dockerfile:
 #指定SpringBoot需要的基础镜像
  FROM maven:3.3.3

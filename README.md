@@ -6,6 +6,7 @@
 可以免费使用,但并行构建任务只有一个.
 
 Dockerfile:
+
 #指定SpringBoot需要的基础镜像
  FROM maven:3.3.3
  #复制pom文件到maven
